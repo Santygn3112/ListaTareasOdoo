@@ -4,13 +4,15 @@
 
 ### 1. Creación del módulo
 
-**¿Qué hace el comando `odoo scaffold`?**
+#### **¿Qué hace el comando `odoo scaffold`?**
+
 El comando `odoo scaffold nombre_modulo ruta` crea automáticamente la estructura de directorios y archivos necesarios para un nuevo módulo de Odoo. Esto nos ahorra tiempo creando carpetas manualmente y asegura que seguimos el estándar de Odoo, generando carpetas como `controllers`, `demo`, `models`, `views`, etc.
 
-**¿Dónde se coloca el módulo?**
+#### **¿Dónde se coloca el módulo?**
+
 El módulo debe colocarse dentro de una ruta que esté definida en el `addons_path` del archivo de configuración de Odoo (`odoo.conf`). En nuestro entorno Docker, utilizamos la ruta `/mnt/extra-addons`, que es donde Odoo busca los módulos personalizados externos.
 
-**¿Cómo se actualiza e instala?**
+#### **¿Cómo se actualiza e instala?**
 
 1.  Activamos el **modo desarrollador** en Odoo.
 2.  Vamos al menú "Aplicaciones" y hacemos clic en **"Actualizar lista de aplicaciones"** para que Odoo detecte la nueva carpeta.
@@ -18,16 +20,16 @@ El módulo debe colocarse dentro de una ruta que esté definida en el `addons_pa
 
 ### 2. Estructura y función de cada archivo
 
-- **`__manifest__.py`**: Es el archivo de metadatos. Contiene un diccionario de Python con la información del módulo (nombre, versión, autor, dependencias) y, lo más importante, la lista de archivos de datos (vistas, seguridad) que el sistema debe cargar.
-- **`models/models.py`**: Contiene la lógica de negocio y la definición de las tablas de la base de datos. Aquí definimos las clases que heredan de `models.Model` y sus campos (columnas).
-- **`views/views.xml`**: Define la interfaz de usuario (UI). Aquí se declaran los menús, las acciones de ventana y cómo se muestran los datos (vistas de lista o formulario) para que el usuario pueda interactuar con el modelo.
-- **`security/ir.model.access.csv`**: Gestiona los permisos de acceso (ACL). Define qué grupos de usuarios tienen permiso para leer, escribir, crear o eliminar registros en nuestro modelo.
+- **`__manifest__.py`**: Es el archivo de metadatos. Contiene un diccionario de Python con la información del módulo y, lo más importante, la lista de archivos de datos que el sistema debe cargar.
+- **`models/models.py`**: Contiene la lógica y la definición de las tablas de la base de datos. Aquí definimos las clases que heredan de `models.Model` y sus campos.
+- **`views/views.xml`**: Define la interfaz de usuario (UI). Aquí se declaran los menús, las acciones de ventana y cómo se muestran los datos para que el usuario pueda interactuar con el modelo.
+- **`security/ir.model.access.csv`**: Gestiona los permisos de acceso. Define qué grupos de usuarios tienen permiso para leer, escribir, crear o eliminar registros en nuestro modelo.
 
 ---
 
 ## Modificaciones e Implementación
 
-Para mejorar la funcionalidad del módulo base, se han realizado los siguientes cambios en la lógica de negocio (`models.py`) y en la vista correspondiente.
+Para mejorar la funcionalidad del módulo base, se han realizado los siguientes cambios en `models.py` y en la vista correspondiente.
 
 ### 1. Cambio del sistema de prioridad
 
