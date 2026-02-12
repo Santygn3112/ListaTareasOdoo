@@ -46,7 +46,9 @@ Se ha refactorizado la función `_value_urgente` para adaptarse al nuevo tipo de
 - **Nueva lógica:** Si `prioridad` es "Alta" o "Crítica" $\rightarrow$ Urgente.
 - **Decorador:** Se mantiene `@api.depends('prioridad')` para asegurar que el campo `urgente` se recalcula automáticamente cada vez que el usuario cambia la prioridad en el formulario.
 
-### Demostración
+---
+
+## Demostración
 
 Creación de la tarea:
 ![Creación de tarea](image.png)
